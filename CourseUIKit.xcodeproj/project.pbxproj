@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D36C3242943CA9D00EC3921 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D36C3232943CA9D00EC3921 /* AppDelegate.swift */; };
-		7D36C3262943CA9D00EC3921 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D36C3252943CA9D00EC3921 /* SceneDelegate.swift */; };
 		7D36C3282943CA9D00EC3921 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D36C3272943CA9D00EC3921 /* ViewController.swift */; };
-		7D36C32B2943CA9D00EC3921 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D36C3292943CA9D00EC3921 /* Main.storyboard */; };
 		7D36C32D2943CA9E00EC3921 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D36C32C2943CA9E00EC3921 /* Assets.xcassets */; };
 		7D36C3302943CA9E00EC3921 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D36C32E2943CA9E00EC3921 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +16,7 @@
 /* Begin PBXFileReference section */
 		7D36C3202943CA9D00EC3921 /* CourseUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D36C3232943CA9D00EC3921 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7D36C3252943CA9D00EC3921 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		7D36C3272943CA9D00EC3921 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7D36C32A2943CA9D00EC3921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7D36C32C2943CA9E00EC3921 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7D36C32F2943CA9E00EC3921 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7D36C3312943CA9E00EC3921 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -57,11 +53,9 @@
 			isa = PBXGroup;
 			children = (
 				7D36C3232943CA9D00EC3921 /* AppDelegate.swift */,
-				7D36C3252943CA9D00EC3921 /* SceneDelegate.swift */,
 				7D36C3272943CA9D00EC3921 /* ViewController.swift */,
-				7D36C3292943CA9D00EC3921 /* Main.storyboard */,
-				7D36C32C2943CA9E00EC3921 /* Assets.xcassets */,
 				7D36C32E2943CA9E00EC3921 /* LaunchScreen.storyboard */,
+				7D36C32C2943CA9E00EC3921 /* Assets.xcassets */,
 				7D36C3312943CA9E00EC3921 /* Info.plist */,
 			);
 			path = CourseUIKit;
@@ -127,7 +121,6 @@
 			files = (
 				7D36C3302943CA9E00EC3921 /* LaunchScreen.storyboard in Resources */,
 				7D36C32D2943CA9E00EC3921 /* Assets.xcassets in Resources */,
-				7D36C32B2943CA9D00EC3921 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,21 +133,12 @@
 			files = (
 				7D36C3282943CA9D00EC3921 /* ViewController.swift in Sources */,
 				7D36C3242943CA9D00EC3921 /* AppDelegate.swift in Sources */,
-				7D36C3262943CA9D00EC3921 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		7D36C3292943CA9D00EC3921 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7D36C32A2943CA9D00EC3921 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7D36C32E2943CA9E00EC3921 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,9 +276,8 @@
 				INFOPLIST_FILE = CourseUIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,9 +285,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Denis-Kurlykov.CourseUIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,9 +306,8 @@
 				INFOPLIST_FILE = CourseUIKit/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIStatusBarStyle = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -330,9 +315,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "Denis-Kurlykov.CourseUIKit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
