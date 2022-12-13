@@ -47,16 +47,26 @@ final class ViewController: UIViewController {
 
  // MARK: - Extension
 extension ViewController {
-    @objc private func startButtonPressed() {
-        let alert = UIAlertController(title: "Введите ", message: nil, preferredStyle: .alert)
-        alert.addTextField()
-        let okButton = UIAlertAction(title: "Ок", style: .default) { [weak resultLabel] _ in
-            guard let text = alert.textFields?.first?.text else { return }
+    @objc func startButtonPressed() {
+        self.presentTextFieldAlert(title: "Введите слово", message: "", textFieldPlaceholder: "") { [weak resultLabel] result in
             guard let label = resultLabel else { return }
-            label.text = self.model.checkingTextLabel(text: text)
+            label.text = self.model.checkingTextLabel(text: result ?? "")
         }
-        alert.addAction(okButton)
-        present(alert, animated: true)
     }
 }
+
+//extension ViewController {
+//    @objc private func startButtonPressed() {
+//        let alert = UIAlertController(title: "Введите ", message: nil, preferredStyle: .alert)
+//        alert.addTextField()
+//        let okButton = UIAlertAction(title: "Ок", style: .default) { [weak resultLabel] _ in
+//            guard let text = alert.textFields?.first?.text else { return }
+//            guard let label = resultLabel else { return }
+//            label.text = self.model.checkingTextLabel(text: text)
+//        }
+//        alert.addAction(okButton)
+//        present(alert, animated: true)
+//    }
+//}
+
 
