@@ -31,8 +31,9 @@ class ViewController: UIViewController {
 }
 
 extension ViewController {
+
     func alert() {
-        alertWithoutCancelButton(title: "Не верные данные", message: "") { [weak passwordTextField, weak loginTextField] result in
+        alert(title: "Не верные данные", message: "") { [weak passwordTextField, weak loginTextField] in
             guard let loginTF = loginTextField else { return }
             guard let passwordTF = passwordTextField else { return }
             loginTF.text = ""

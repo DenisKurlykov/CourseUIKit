@@ -16,16 +16,16 @@ class ClientViewController: UIViewController {
     }
     
     @IBAction func paymentButtonPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "Выставить счет", message: "", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .default) { action in
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-            self.navigationController?.pushViewController(next, animated: true)
-
-        }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-        alert.addAction(action)
-        alert.addAction(cancel)
-        self.present(alert, animated: true, completion: nil)
+        alert()
     }
     
+}
+
+extension ClientViewController {
+    func alert() {
+        alertWithCancel(title: "Выставить счет", message: "") {
+            let next = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
+            self.navigationController?.pushViewController(next, animated: true)
+        }
+    }
 }
