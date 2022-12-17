@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D359F6A294BB01500536DFE /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D359F69294BB01500536DFE /* ClientViewController.swift */; };
+		7D359F6C294BBE8D00536DFE /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D359F6B294BBE8D00536DFE /* PaymentViewController.swift */; };
+		7D359F6F294DF6B500536DFE /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D359F6E294DF6B500536DFE /* Model.swift */; };
+		7D359F71294DF86200536DFE /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D359F70294DF86200536DFE /* AlertController.swift */; };
 		7D36C3242943CA9D00EC3921 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D36C3232943CA9D00EC3921 /* AppDelegate.swift */; };
 		7D36C3262943CA9D00EC3921 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D36C3252943CA9D00EC3921 /* SceneDelegate.swift */; };
 		7D36C3282943CA9D00EC3921 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D36C3272943CA9D00EC3921 /* ViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7D359F69294BB01500536DFE /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
+		7D359F6B294BBE8D00536DFE /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
+		7D359F6E294DF6B500536DFE /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		7D359F70294DF86200536DFE /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		7D36C3202943CA9D00EC3921 /* CourseUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D36C3232943CA9D00EC3921 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7D36C3252943CA9D00EC3921 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +45,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7D359F6D294DF58500536DFE /* ViewConrollers */ = {
+			isa = PBXGroup;
+			children = (
+				7D359F70294DF86200536DFE /* AlertController.swift */,
+				7D36C3272943CA9D00EC3921 /* ViewController.swift */,
+				7D359F69294BB01500536DFE /* ClientViewController.swift */,
+				7D359F6B294BBE8D00536DFE /* PaymentViewController.swift */,
+			);
+			path = ViewConrollers;
+			sourceTree = "<group>";
+		};
 		7D36C3172943CA9D00EC3921 = {
 			isa = PBXGroup;
 			children = (
@@ -58,9 +77,10 @@
 			children = (
 				7D36C3232943CA9D00EC3921 /* AppDelegate.swift */,
 				7D36C3252943CA9D00EC3921 /* SceneDelegate.swift */,
-				7D36C3272943CA9D00EC3921 /* ViewController.swift */,
-				7D36C3292943CA9D00EC3921 /* Main.storyboard */,
+				7D359F6E294DF6B500536DFE /* Model.swift */,
+				7D359F6D294DF58500536DFE /* ViewConrollers */,
 				7D36C32C2943CA9E00EC3921 /* Assets.xcassets */,
+				7D36C3292943CA9D00EC3921 /* Main.storyboard */,
 				7D36C32E2943CA9E00EC3921 /* LaunchScreen.storyboard */,
 				7D36C3312943CA9E00EC3921 /* Info.plist */,
 			);
@@ -140,7 +160,11 @@
 			files = (
 				7D36C3282943CA9D00EC3921 /* ViewController.swift in Sources */,
 				7D36C3242943CA9D00EC3921 /* AppDelegate.swift in Sources */,
+				7D359F6C294BBE8D00536DFE /* PaymentViewController.swift in Sources */,
+				7D359F6F294DF6B500536DFE /* Model.swift in Sources */,
+				7D359F71294DF86200536DFE /* AlertController.swift in Sources */,
 				7D36C3262943CA9D00EC3921 /* SceneDelegate.swift in Sources */,
+				7D359F6A294BB01500536DFE /* ClientViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
