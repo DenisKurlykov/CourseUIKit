@@ -6,26 +6,71 @@
 //
 
 import UIKit
+// 4.Добавить третий экран счёт где выводим фио , номер стола и сумма
 
-class PaymentViewController: UIViewController {
-
+final class PaymentViewController: UIViewController {
+    
+    @IBOutlet weak var positionOrderOne: UILabel!
+    @IBOutlet weak var coastPositionOrderOne: UILabel!
+    @IBOutlet weak var ingredientsPositionOrderOne: UILabel!
+    
+    @IBOutlet weak var positionOrderTwo: UILabel!
+    @IBOutlet weak var coastPositionOrderTwo: UILabel!
+    @IBOutlet weak var ingredientsPositionOrderTwo: UILabel!
+    
+    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak var tableNumberLabel: UILabel!
+    @IBOutlet weak var guestsCount: UILabel!
+    @IBOutlet weak var totalCoastLabel: UILabel!
+    
+    var fullName: String!
+    var modelPayment = Customer()
+    
+    private let modelOrder = Menu.getMenu()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupPositionOrderOne()
+        setupPositionOrderTwo()
+        setupFullNameLabel()
+        setupTableNumberLabel()
+        setupTableNumberLabel()
+        setupGuestsCount()
+        setupTotalCoastLabel()
         
-        
-
-        // Do any additional setup after loading the view.
+    
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func setupPositionOrderOne() {
+        positionOrderOne.text = modelOrder[0].name
+        coastPositionOrderOne.text = modelOrder[0].coast
+        ingredientsPositionOrderOne.text = modelOrder[0].ingredients
     }
-    */
-
+    
+    private func setupPositionOrderTwo() {
+        positionOrderTwo.text = modelOrder[1].name
+        coastPositionOrderTwo.text = modelOrder[1].coast
+        ingredientsPositionOrderTwo.text = modelOrder[1].ingredients
+    }
+    
+    private func setupFullNameLabel() {
+        fullNameLabel.text = modelPayment.fullName
+    }
+    
+    private func setupTableNumberLabel() {
+        tableNumberLabel.text = modelPayment.tableNumber
+    }
+    
+    private func setupGuestsCount() {
+        guestsCount.text = modelPayment.guestsNumber
+    }
+    
+    private func setupTotalCoastLabel() {
+        totalCoastLabel.layer.masksToBounds = true
+        totalCoastLabel.layer.cornerRadius = 20
+        guard let numberOne = Int(coastPositionOrderOne.text ?? "") else { return }
+        guard let numberTwo = Int(coastPositionOrderTwo.text ?? "") else { return }
+        totalCoastLabel.text = String("Итого \(numberOne + numberTwo) р")
+        
+    }
 }
