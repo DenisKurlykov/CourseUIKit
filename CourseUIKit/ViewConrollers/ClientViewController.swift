@@ -14,9 +14,9 @@ import UIKit
 final class ClientViewController: UIViewController {
     
     // MARK: - IBAOutlets
-    @IBOutlet weak var fullNameTextField: UITextField!
-    @IBOutlet weak var guestsNumberTextField: UITextField!
-    @IBOutlet weak var tableNumberTextField: UITextField!
+    @IBOutlet private var fullNameTextField: UITextField!
+    @IBOutlet private var guestsNumberTextField: UITextField!
+    @IBOutlet private var tableNumberTextField: UITextField!
     
     // MARK: - Public Properties
     var model = Customer()
@@ -37,7 +37,11 @@ final class ClientViewController: UIViewController {
     // MARK: - IBAction
     @IBAction func paymentButtonPressed(_ sender: Any) {
         initModel()
-        alertPaymentButtonPressed()
+        alertWithCancel(title: "Выставить счет", message: "") {
+            guard let next = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController else { return }
+            self.navigationController?.pushViewController(next, animated: true)
+            next.modelPayment = self.model
+        }
     }
     
     @IBAction func switchTableReserve(_ sender: UISwitch) {
@@ -94,18 +98,5 @@ final class ClientViewController: UIViewController {
         
         guard let tableNumberTF = tableNumberTextField.text else { return }
         model.tableNumber = tableNumberTF
-        
-
-    }
-}
-
-// MARK: - Alert
-extension ClientViewController {
-    func alertPaymentButtonPressed() {
-        alertWithCancel(title: "Выставить счет", message: "") {
-            let next = self.storyboard?.instantiateViewController(withIdentifier: "PaymentViewController") as! PaymentViewController
-            self.navigationController?.pushViewController(next, animated: true)
-            next.modelPayment = self.model
-        }
     }
 }

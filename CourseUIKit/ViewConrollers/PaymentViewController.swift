@@ -10,18 +10,18 @@ import UIKit
 
 final class PaymentViewController: UIViewController {
     
-    @IBOutlet weak var positionOrderOne: UILabel!
-    @IBOutlet weak var coastPositionOrderOne: UILabel!
-    @IBOutlet weak var ingredientsPositionOrderOne: UILabel!
+    @IBOutlet private var positionOrderOne: UILabel!
+    @IBOutlet private var coastPositionOrderOne: UILabel!
+    @IBOutlet private var ingredientsPositionOrderOne: UILabel!
     
-    @IBOutlet weak var positionOrderTwo: UILabel!
-    @IBOutlet weak var coastPositionOrderTwo: UILabel!
-    @IBOutlet weak var ingredientsPositionOrderTwo: UILabel!
+    @IBOutlet private var positionOrderTwo: UILabel!
+    @IBOutlet private var coastPositionOrderTwo: UILabel!
+    @IBOutlet private var ingredientsPositionOrderTwo: UILabel!
     
-    @IBOutlet weak var fullNameLabel: UILabel!
-    @IBOutlet weak var tableNumberLabel: UILabel!
-    @IBOutlet weak var guestsCount: UILabel!
-    @IBOutlet weak var totalCoastLabel: UILabel!
+    @IBOutlet private var fullNameLabel: UILabel!
+    @IBOutlet private var tableNumberLabel: UILabel!
+    @IBOutlet private var guestsCount: UILabel!
+    @IBOutlet private var totalCoastLabel: UILabel!
     
     var fullName: String!
     var modelPayment = Customer()

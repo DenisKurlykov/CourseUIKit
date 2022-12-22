@@ -8,8 +8,8 @@
 import Foundation
 
 struct Access {
-    let login = "User"
-    let password = "12345"
+    let login: String
+    let password: String
 }
 
 struct Customer {

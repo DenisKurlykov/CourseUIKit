@@ -11,11 +11,11 @@ import UIKit
 final class ViewController: UIViewController {
     
     // MARK: - IBAOutlets
-    @IBOutlet weak var loginTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet private var loginTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
     
     // MARK: - Public Properties
-    let model = Access()
+    let model = Access(login: "User", password: "12345")
     
     // MARK: - Life Cycles Method
     override func viewWillAppear(_ animated: Bool) {
