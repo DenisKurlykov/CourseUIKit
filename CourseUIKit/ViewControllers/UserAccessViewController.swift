@@ -8,6 +8,8 @@
 import UIKit
 
 final class UserAccessViewController: UIViewController {
+    let model = UserAccess(login: "ivan@mail.ru", password: "123456")
+    
     // MARK: - Private Properties
     private lazy var appNameLabel: UILabel = {
         let label = UILabel()
