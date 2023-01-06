@@ -9,8 +9,11 @@ import UIKit
 
 class AddPersonViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    // MARK: - Public Properties
+    lazy var model = Customer(name: nameTextField.text ?? "", photo: personPhoto.image ?? "")
+    
     // MARK: - Private Properties
-    private let personPhoto: UIImageView = {
+    private var personPhoto: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "person")
         image.layer.borderWidth = 2
@@ -48,7 +51,7 @@ class AddPersonViewController: UIViewController, UIImagePickerControllerDelegate
         return label
     }()
     
-    private let nameTextField: UITextField = {
+    private lazy var nameTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Введите имя"
@@ -183,7 +186,9 @@ class AddPersonViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @objc private func addPerson() {
+        let vc = BirthdayViewController()
         
+        navigationController?.popToViewController(vc, animated: true)
     }
     
     @objc private func cancel() {

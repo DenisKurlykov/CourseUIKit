@@ -8,6 +8,7 @@
 import UIKit
 
 class BirthdayViewController: UIViewController {
+    
     // MARK: - Private Properties
     private let contactPhoto: UIImageView = {
         let image = UIImageView()

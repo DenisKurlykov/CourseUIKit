@@ -6,7 +6,14 @@
 //
 
 import Foundation
+import UIKit
+
 struct UserAccess {
     let login: String
     let password: String
+}
+
+struct Customer {
+    let name: String
+    let photo: UIImage
 }
