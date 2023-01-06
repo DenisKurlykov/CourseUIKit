@@ -8,6 +8,7 @@
 import UIKit
 
 final class UserAccessViewController: UIViewController {
+    // MARK: - Public Properties
     let model = UserAccess(login: "ivan@mail.ru", password: "123456")
     
     // MARK: - Private Properties
@@ -49,7 +50,7 @@ final class UserAccessViewController: UIViewController {
         return textField
     }()
     
-    private lazy var passwordLabel: UILabel = {
+    private let passwordLabel: UILabel = {
         let label = UILabel()
         label.text = "Password"
         label.textColor = .systemBlue
@@ -60,20 +61,41 @@ final class UserAccessViewController: UIViewController {
     
     private lazy var passwordTextField: UITextField = {
         let textField = UITextField()
+        textField.isSecureTextEntry = true
+        textField.keyboardType = .numberPad
         textField.borderStyle = .roundedRect
         textField.placeholder = "Please insert your password"
+        
+        let overlayButton = UIButton(type: .custom)
+        let eyeImage = UIImage(systemName: "eye")
+        overlayButton.setImage(eyeImage, for: .normal)
+        overlayButton.addTarget(self, action: #selector(overlayButtonPressed),
+                                for: .touchUpInside)
+        overlayButton.sizeToFit()
+    
+        textField.rightView = overlayButton
+        textField.rightViewMode = .always
         return textField
     }()
     
     private lazy var enterButton: UIButton = {
         var atributes = AttributeContainer()
-        atributes.font = .boldSystemFont(ofSize: 18
-        )
+        atributes.font = .boldSystemFont(ofSize: 18)
         var buttonConfiguration = UIButton.Configuration.filled()
         buttonConfiguration.attributedSubtitle = AttributedString("Войти", attributes: atributes)
         buttonConfiguration.baseBackgroundColor = .systemBlue
-        return UIButton(configuration: buttonConfiguration, primaryAction: UIAction {_ in
+        return UIButton(configuration: buttonConfiguration, primaryAction: UIAction { [weak loginTextField, weak passwordTextField]_ in
+            guard let loginTF = loginTextField else { return }
+            guard let passwordTF = passwordTextField else { return }
             
+            if loginTF.text == self.model.login && passwordTF.text == self.model.password {
+                let navVC = BirthdayViewController()
+                self.navigationController?.pushViewController(navVC, animated: true)
+            } else {
+                self.alert(title: "Вы ввели не верные данные", message: "") {
+                    passwordTF.text = ""
+                }
+            }
         })
     }()
 
@@ -92,6 +114,11 @@ final class UserAccessViewController: UIViewController {
         )
         setupConstraints()
     }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
+    }
    
     // MARK: - Private Methods
     private func setupSubviews(_ subviews: UIView...) {
@@ -100,6 +127,12 @@ final class UserAccessViewController: UIViewController {
         }
     }
     
+    @objc private func overlayButtonPressed() {
+        passwordTextField.isSecureTextEntry.toggle()
+    }
+}
+
+extension UserAccessViewController {
     private func setupConstraints() {
         appNameLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -151,5 +184,3 @@ final class UserAccessViewController: UIViewController {
         ])
     }
 }
-
-

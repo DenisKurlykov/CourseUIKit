@@ -17,7 +17,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         window?.rootViewController = UserAccessViewController()
-    }
+        
+        let vc = UserAccessViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        window?.rootViewController = navVC
+
+}
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
