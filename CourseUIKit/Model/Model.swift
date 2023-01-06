@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+//import UIKit
 
 struct UserAccess {
     let login: String
@@ -14,6 +15,6 @@ struct UserAccess {
 }
 
 struct Customer {
-    let name: String
-    let photo: UIImage
+    var name = ""
+    var photo = UIImage(named: "person")
 }

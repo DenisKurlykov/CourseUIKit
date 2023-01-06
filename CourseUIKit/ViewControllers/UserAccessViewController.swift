@@ -25,7 +25,7 @@ final class UserAccessViewController: UIViewController {
         return label
     }()
     
-    private lazy var signInLabel: UILabel = {
+    private let signInLabel: UILabel = {
         let label = UILabel()
         label.text = "Sign In"
         label.textColor = .black
@@ -34,7 +34,7 @@ final class UserAccessViewController: UIViewController {
         return label
     }()
     
-    private lazy var emailLabel: UILabel = {
+    private let emailLabel: UILabel = {
         let label = UILabel()
         label.text = "Email"
         label.textColor = .systemBlue
@@ -43,7 +43,7 @@ final class UserAccessViewController: UIViewController {
         return label
     }()
     
-    private lazy var loginTextField: UITextField = {
+    private let loginTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Please insert your login"
@@ -84,15 +84,15 @@ final class UserAccessViewController: UIViewController {
         var buttonConfiguration = UIButton.Configuration.filled()
         buttonConfiguration.attributedSubtitle = AttributedString("Войти", attributes: atributes)
         buttonConfiguration.baseBackgroundColor = .systemBlue
-        return UIButton(configuration: buttonConfiguration, primaryAction: UIAction { [weak loginTextField, weak passwordTextField]_ in
-            guard let loginTF = loginTextField else { return }
-            guard let passwordTF = passwordTextField else { return }
+        return UIButton(configuration: buttonConfiguration, primaryAction: UIAction { [weak self]_ in
+            guard let loginTF = self?.loginTextField else { return }
+            guard let passwordTF = self?.passwordTextField else { return }
             
-            if loginTF.text == self.model.login && passwordTF.text == self.model.password {
+            if loginTF.text == self?.model.login && passwordTF.text == self?.model.password {
                 let navVC = BirthdayViewController()
-                self.navigationController?.pushViewController(navVC, animated: true)
+                self?.navigationController?.pushViewController(navVC, animated: true)
             } else {
-                self.alert(title: "Вы ввели не верные данные", message: "") {
+                self?.alert(title: "Вы ввели не верные данные", message: "") {
                     passwordTF.text = ""
                 }
             }

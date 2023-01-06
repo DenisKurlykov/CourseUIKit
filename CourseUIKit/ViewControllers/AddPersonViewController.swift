@@ -7,13 +7,14 @@
 
 import UIKit
 
-class AddPersonViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+final class AddPersonViewController: UIViewController {
     
     // MARK: - Public Properties
-    lazy var model = Customer(name: nameTextField.text ?? "", photo: personPhoto.image ?? "")
+    var model = Customer()
+    var completion: ((Customer) -> ())?
     
     // MARK: - Private Properties
-    private var personPhoto: UIImageView = {
+    private lazy var personPhoto: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "person")
         image.layer.borderWidth = 2
@@ -56,6 +57,7 @@ class AddPersonViewController: UIViewController, UIImagePickerControllerDelegate
         textField.borderStyle = .roundedRect
         textField.placeholder = "Введите имя"
         textField.textAlignment = .left
+        textField.delegate = self
         return textField
     }()
     
@@ -119,11 +121,12 @@ class AddPersonViewController: UIViewController, UIImagePickerControllerDelegate
         return label
     }()
     
-    private let instagramTextField: UITextField = {
+    private lazy var instagramTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Добавить инстаграм"
         textField.textAlignment = .left
+        textField.delegate = self
         return textField
     }()
 
@@ -149,17 +152,12 @@ class AddPersonViewController: UIViewController, UIImagePickerControllerDelegate
         setupConstraints()
     }
     
-    // MARK: - Public Methods
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        guard let image = info[.editedImage] as? UIImage else { return }
-        personPhoto.image = image
-        
-        guard let image = info[.originalImage] as? UIImage else { return }
-        personPhoto.image = image
-
-        dismiss(animated: true)
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        view.endEditing(true)
     }
     
+
     // MARK: - Private Methods
     private func setupSubviews(_ subviews: UIView...) {
         subviews .forEach { subview in
@@ -186,9 +184,9 @@ class AddPersonViewController: UIViewController, UIImagePickerControllerDelegate
     }
     
     @objc private func addPerson() {
-        let vc = BirthdayViewController()
-        
-        navigationController?.popToViewController(vc, animated: true)
+        view.endEditing(true)
+        completion?(model)
+        dismiss(animated: true)
     }
     
     @objc private func cancel() {
@@ -277,5 +275,37 @@ extension AddPersonViewController {
             instagramTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             instagramTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16)
         ])
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+extension AddPersonViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else { return }
+        personPhoto.image = image
+        model.photo = image
+        
+        guard let image = info[.originalImage] as? UIImage else { return }
+        personPhoto.image = image
+
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension AddPersonViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        guard let newValue = textField.text else { return }
+        //nameTextField.text = newValue
+        model.name = newValue
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        guard let textField = instagramTextField.text else { return }
+        if textField == instagramTextField.text {
+            alert(title: "12345", message: "") {
+                print("")
+            }
+        }
     }
 }

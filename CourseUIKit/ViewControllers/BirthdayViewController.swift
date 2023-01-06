@@ -7,12 +7,13 @@
 
 import UIKit
 
-class BirthdayViewController: UIViewController {
+final class BirthdayViewController: UIViewController {
+    var model1 = Customer()
     
     // MARK: - Private Properties
-    private let contactPhoto: UIImageView = {
+    private lazy var contactPhoto: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "person")
+        image.image = model1.photo
         image.layer.borderWidth = 1
         image.layer.borderColor = UIColor.lightGray.cgColor
         image.contentMode = .scaleAspectFill
@@ -21,9 +22,9 @@ class BirthdayViewController: UIViewController {
         return image
     }()
     
-    private let nameLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "James"
+        label.text = model1.name
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 20)
         label.textAlignment = .left
@@ -60,7 +61,7 @@ class BirthdayViewController: UIViewController {
             daysToBirthdayLabel)
         setupConstraints()
     }
-    
+
     // MARK: - Private Methods
     private func setupSubviews(_ subviews: UIView...) {
         subviews .forEach { subview in
@@ -85,8 +86,14 @@ class BirthdayViewController: UIViewController {
     }
     
     @objc private func addNewPerson() {
-        let navVC = UINavigationController(rootViewController: AddPersonViewController())
-        self.present(navVC, animated: true)
+        let rootVC = AddPersonViewController()
+        let navVC = UINavigationController(rootViewController: rootVC)
+        navVC.modalPresentationStyle = .fullScreen
+        rootVC.completion = { [weak self] value in
+            self?.nameLabel.text = value.name
+            self?.contactPhoto.image = value.photo
+        }
+        present(navVC, animated: true)
     }
 }
 
