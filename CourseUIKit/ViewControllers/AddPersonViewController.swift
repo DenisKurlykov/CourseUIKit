@@ -296,15 +296,16 @@ extension AddPersonViewController: UINavigationControllerDelegate, UIImagePicker
 extension AddPersonViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         guard let newValue = textField.text else { return }
-        //nameTextField.text = newValue
-        model.name = newValue
+        if textField == nameTextField {
+            model.name = newValue
+        }
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        guard let textField = instagramTextField.text else { return }
-        if textField == instagramTextField.text {
-            alert(title: "12345", message: "") {
-                print("")
+        if textField == instagramTextField {
+            alertWithCancelButton(title: "Введите username Instagram", message: "", textFieldPlaceholder: "например yashalava2019") { [unowned self] result in
+                guard let text = result else { return }
+                instagramTextField.text = text
             }
         }
     }

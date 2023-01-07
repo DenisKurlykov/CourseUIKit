@@ -12,7 +12,7 @@ final class UserAccessViewController: UIViewController {
     let model = UserAccess(login: "ivan@mail.ru", password: "123456")
     
     // MARK: - Private Properties
-    private lazy var appNameLabel: UILabel = {
+    private let appNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Birthday Reminder"
         label.textColor = .systemBlue
@@ -43,7 +43,7 @@ final class UserAccessViewController: UIViewController {
         return label
     }()
     
-    private let loginTextField: UITextField = {
+    private lazy var loginTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Please insert your login"
