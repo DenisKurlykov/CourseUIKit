@@ -8,12 +8,12 @@
 import UIKit
 
 final class BirthdayViewController: UIViewController {
-    var model1 = Customer()
+    var model = Customer()
     
     // MARK: - Private Properties
     private lazy var contactPhoto: UIImageView = {
         let image = UIImageView()
-        image.image = model1.photo
+        image.image = model.photo
         image.layer.borderWidth = 1
         image.layer.borderColor = UIColor.lightGray.cgColor
         image.contentMode = .scaleAspectFill
@@ -24,7 +24,7 @@ final class BirthdayViewController: UIViewController {
     
     private lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.text = model1.name
+        label.text = model.name
         label.textColor = .black
         label.font = .boldSystemFont(ofSize: 20)
         label.textAlignment = .left
@@ -53,13 +53,14 @@ final class BirthdayViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        setupNavigationBar()
+        
         setupSubviews(
             contactPhoto,
             nameLabel,
             contactInfoLabel,
             daysToBirthdayLabel)
         setupConstraints()
+        setupNavigationBar()
     }
 
     // MARK: - Private Methods
@@ -88,7 +89,6 @@ final class BirthdayViewController: UIViewController {
     @objc private func addNewPerson() {
         let rootVC = AddPersonViewController()
         let navVC = UINavigationController(rootViewController: rootVC)
-        navVC.modalPresentationStyle = .fullScreen
         rootVC.completion = { [weak self] value in
             self?.nameLabel.text = value.name
             self?.contactPhoto.image = value.photo

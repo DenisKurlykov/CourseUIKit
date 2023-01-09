@@ -11,6 +11,17 @@ final class AddPersonViewController: UIViewController {
     
     // MARK: - Public Properties
     var model = Customer()
+    
+    private let gender = ["Парень", "Девушка"]
+    
+    private var age: [Int] {
+        var result = [0]
+        for value in 1...100{
+            result += [value]
+        }
+        return result
+    }
+    
     var completion: ((Customer) -> ())?
     
     // MARK: - Private Properties
@@ -70,11 +81,15 @@ final class AddPersonViewController: UIViewController {
         return label
     }()
     
-    private let dateTextField: UITextField = {
+    private lazy var dateTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Добавить дату"
         textField.textAlignment = .left
+        
+        textField.inputView = datePicker
+        textField.inputAccessoryView = toolBarDP
+
         return textField
     }()
     
@@ -87,11 +102,12 @@ final class AddPersonViewController: UIViewController {
         return label
     }()
     
-    private let ageTextField: UITextField = {
+    private lazy var ageTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Добавить возраст"
         textField.textAlignment = .left
+        textField.inputView = agePicker
         return textField
     }()
     
@@ -104,11 +120,12 @@ final class AddPersonViewController: UIViewController {
         return label
     }()
     
-    private let genderTextField: UITextField = {
+    private lazy var genderTextField: UITextField = {
         let textField = UITextField()
         textField.borderStyle = .roundedRect
         textField.placeholder = "Добавить пол"
         textField.textAlignment = .left
+        textField.inputView = genderPicker
         return textField
     }()
     
@@ -130,6 +147,39 @@ final class AddPersonViewController: UIViewController {
         return textField
     }()
 
+    private lazy var agePicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.tag = 1
+        picker.delegate = self
+        picker.dataSource = self
+        return picker
+    }()
+    
+    private lazy var genderPicker: UIPickerView = {
+       let picker = UIPickerView()
+        picker.tag = 2
+        picker.delegate = self
+        picker.dataSource = self
+        return picker
+    }()
+   
+    private lazy var datePicker: UIDatePicker = {
+       let picker = UIDatePicker()
+        let localeID = Locale.preferredLanguages.first
+        picker.locale = Locale(identifier: localeID!)
+        picker.datePickerMode = .dateAndTime
+        picker.preferredDatePickerStyle = .wheels
+        return picker
+    }()
+    
+    private lazy var toolBarDP: UIToolbar = {
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        let doneButton = UIBarButtonItem(title: "Готово", style: .done, target: self, action: #selector(doneButtonDatePickerPressed))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        toolBar.setItems([flexSpace, doneButton], animated: true)
+        return toolBar
+    }()
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
@@ -191,6 +241,12 @@ final class AddPersonViewController: UIViewController {
     
     @objc private func cancel() {
         dismiss(animated: true)
+    }
+    
+    @objc private func doneButtonDatePickerPressed() {
+        dateTextField.text = datePicker.date.formatted()
+        //print(dateTextField.text ?? "123")
+        dateTextField.endEditing(true)
     }
 }
 
@@ -310,3 +366,41 @@ extension AddPersonViewController: UITextFieldDelegate {
         }
     }
 }
+
+// MARK: - UIPickerViewDelegate
+extension AddPersonViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch pickerView.tag {
+        case 1:
+            return age.count
+        default:
+            return gender.count
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch pickerView.tag {
+        case 1:
+            return String(age[row])
+        default:
+            return gender[row]
+        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView.tag {
+        case 1:
+            ageTextField.text = String(age[row])
+            ageTextField.resignFirstResponder()
+        default:
+            genderTextField.text = gender[row]
+            ageTextField.resignFirstResponder()
+        }
+    }
+}
+
+

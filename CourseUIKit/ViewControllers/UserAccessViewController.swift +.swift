@@ -29,6 +29,7 @@ extension UIViewController {
             textField.placeholder = textFieldPlaceholder
         }
         alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
         self.present(alertController, animated: true, completion: nil)
     }
 }

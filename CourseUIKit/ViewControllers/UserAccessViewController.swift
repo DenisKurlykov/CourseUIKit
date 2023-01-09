@@ -69,8 +69,7 @@ final class UserAccessViewController: UIViewController {
         let overlayButton = UIButton(type: .custom)
         let eyeImage = UIImage(systemName: "eye")
         overlayButton.setImage(eyeImage, for: .normal)
-        overlayButton.addTarget(self, action: #selector(overlayButtonPressed),
-                                for: .touchUpInside)
+        overlayButton.addTarget(self, action: #selector(overlayButtonPressed), for: .touchUpInside)
         overlayButton.sizeToFit()
     
         textField.rightView = overlayButton
