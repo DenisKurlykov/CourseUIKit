@@ -64,12 +64,6 @@ final class BirthdayViewController: UIViewController {
     }
 
     // MARK: - Private Methods
-    private func setupSubviews(_ subviews: UIView...) {
-        subviews .forEach { subview in
-            view.addSubview(subview)
-        }
-    }
-    
     private func setupNavigationBar() {
         title = "Birthday"
         
@@ -90,8 +84,9 @@ final class BirthdayViewController: UIViewController {
         let rootVC = AddPersonViewController()
         let navVC = UINavigationController(rootViewController: rootVC)
         rootVC.completion = { [weak self] value in
-            self?.nameLabel.text = value.name
-            self?.contactPhoto.image = value.photo
+            guard let self = self else { return }
+            self.nameLabel.text = value.name
+            self.contactPhoto.image = value.photo
         }
         present(navVC, animated: true)
     }

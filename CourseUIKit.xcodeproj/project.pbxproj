@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7D0E2EAB2958F60C00EE1BF7 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E2EAA2958F60C00EE1BF7 /* Model.swift */; };
-		7D0E2EAD295A19B800EE1BF7 /* UserAccessViewController.swift +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E2EAC295A19B800EE1BF7 /* UserAccessViewController.swift +.swift */; };
+		7D0E2EAD295A19B800EE1BF7 /* UIViewController +.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E2EAC295A19B800EE1BF7 /* UIViewController +.swift */; };
 		7D0E2EAF295A24CE00EE1BF7 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E2EAE295A24CE00EE1BF7 /* BirthdayViewController.swift */; };
 		7D0E2EB1295CBECA00EE1BF7 /* AddPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D0E2EB0295CBECA00EE1BF7 /* AddPersonViewController.swift */; };
 		7D36C3242943CA9D00EC3921 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D36C3232943CA9D00EC3921 /* AppDelegate.swift */; };
@@ -20,7 +20,7 @@
 
 /* Begin PBXFileReference section */
 		7D0E2EAA2958F60C00EE1BF7 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		7D0E2EAC295A19B800EE1BF7 /* UserAccessViewController.swift +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserAccessViewController.swift +.swift"; sourceTree = "<group>"; };
+		7D0E2EAC295A19B800EE1BF7 /* UIViewController +.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController +.swift"; sourceTree = "<group>"; };
 		7D0E2EAE295A24CE00EE1BF7 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		7D0E2EB0295CBECA00EE1BF7 /* AddPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPersonViewController.swift; sourceTree = "<group>"; };
 		7D36C3202943CA9D00EC3921 /* CourseUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CourseUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,7 +56,7 @@
 		7D0E2EA52958F27500EE1BF7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				7D0E2EAC295A19B800EE1BF7 /* UserAccessViewController.swift +.swift */,
+				7D0E2EAC295A19B800EE1BF7 /* UIViewController +.swift */,
 				7D36C3272943CA9D00EC3921 /* UserAccessViewController.swift */,
 				7D0E2EAE295A24CE00EE1BF7 /* BirthdayViewController.swift */,
 				7D0E2EB0295CBECA00EE1BF7 /* AddPersonViewController.swift */,
@@ -179,7 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D36C3282943CA9D00EC3921 /* UserAccessViewController.swift in Sources */,
-				7D0E2EAD295A19B800EE1BF7 /* UserAccessViewController.swift +.swift in Sources */,
+				7D0E2EAD295A19B800EE1BF7 /* UIViewController +.swift in Sources */,
 				7D36C3242943CA9D00EC3921 /* AppDelegate.swift in Sources */,
 				7D36C3262943CA9D00EC3921 /* SceneDelegate.swift in Sources */,
 				7D0E2EAB2958F60C00EE1BF7 /* Model.swift in Sources */,

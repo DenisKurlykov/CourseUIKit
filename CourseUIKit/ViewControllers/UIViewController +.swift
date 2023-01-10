@@ -5,9 +5,8 @@
 //  Created by Денис Курлыков on 26.12.2022.
 //
 
-import Foundation
 import UIKit
-
+// MARK: - AlertController
 extension UIViewController {
     func alert(title: String, message: String, completion: @escaping() -> ()) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -34,3 +33,11 @@ extension UIViewController {
     }
 }
 
+// MARK: - AddSubviews
+extension UIViewController {
+    func setupSubviews(_ subviews: UIView...) {
+        subviews.forEach { subview in
+            view.addSubview(subview)
+        }
+    }
+}

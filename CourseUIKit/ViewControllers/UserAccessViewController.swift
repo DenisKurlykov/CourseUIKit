@@ -120,12 +120,6 @@ final class UserAccessViewController: UIViewController {
     }
    
     // MARK: - Private Methods
-    private func setupSubviews(_ subviews: UIView...) {
-        subviews.forEach { subview in
-            view.addSubview(subview)
-        }
-    }
-    
     @objc private func overlayButtonPressed() {
         passwordTextField.isSecureTextEntry.toggle()
     }
